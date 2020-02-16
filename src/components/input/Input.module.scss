@@ -1,0 +1,62 @@
+@import '../../styles/config';
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 15px;
+  border: 1px solid #ebebeb;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  margin-bottom: 10px;
+
+  &:focus {
+    outline: 1px solid $cBackground;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &[name="checkbox"],
+  &[name="radio"] {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+  }
+
+  &.error {
+    border-color: $errorColor;
+    background-color: rgba(212, 55, 40, 0.2);
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.labelsWrapper {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputRequired {
+  color: #777;
+}
+
+.inputRequired,
+.inputLabel {
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.inputError {
+  margin-top: 5px;
+  color: $errorColor;
+  font-size: 12px;
+}

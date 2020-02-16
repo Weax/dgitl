@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './Input.css';
+import styles from './Input.module.scss';
 
 const Input = ({
   id, className, label, error, ...attrs
 }) => {
   const classes = classNames(
-    'input',
+    styles.input,
     className,
-    { error },
+    { [styles.error]: error },
   );
 
   return (
-    <div className="inputWrapper">
-      <div className="labelsWrapper">
+    <div className={styles.inputWrapper}>
+      <div className={styles.labelsWrapper}>
         {label
-          && <label className="inputLabel" htmlFor={id}>{label}</label>
+          && <label className={styles.inputLabel} htmlFor={id}>{label}</label>
         }
         {attrs.required
-          && <span className="inputRequired">Required</span>
+          && <span className={styles.inputRequired}>Required</span>
         }
       </div>
       <input
@@ -30,7 +30,7 @@ const Input = ({
         {...attrs}
       />
       {error
-        && <span className="inputError">{error}</span>
+        && <span className={styles.inputError}>{error}</span>
       }
     </div>
   );

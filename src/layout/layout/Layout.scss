@@ -1,0 +1,42 @@
+@import "../../styles/_config";
+
+/*** box sizing border-box for all elements ***/
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-size: 6.25%; /*for using REM units*/
+  height: 100%;
+}
+body {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  font-weight: 400;
+  line-height: $lineHeight;
+  height: 100%;
+  margin: 0;
+
+  background: #fbfdfe;
+  color: $bodyColor;
+}
+
+::selection {
+  background: $bodyColor;
+  color: color-yiq($bodyColor);
+}
+
+#root {
+    height: 100%;
+    display: flex;
+}
+
+section {
+    width: 100%;
+    padding: 25px;
+    background: white;
+}

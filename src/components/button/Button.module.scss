@@ -1,0 +1,37 @@
+@import '../../styles/config';
+
+.btn {
+  position: relative;
+  padding: 8px 15px;
+  background-color: $cBackground;
+  border: 1px solid $cBackground;
+  color: color-yiq($cBackground);
+  font-weight: 600;
+  font-size: 13.333rem;
+  line-height: $lineHeight;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $cBackgroundHover;
+  }
+  &:active, &:focus {
+    outline: 1px solid rgba($bodyColor, 0.2);
+  }
+  &[disabled] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+  &.active {
+    background-color: $cBackgroundActive;
+    border: 1px solid $cBackgroundActive;
+  }
+  &.invert {
+    background-color: color-yiq($cBackground);
+    color: $cBackground;
+    border: 1px solid $cBackground;
+  }
+  
+}

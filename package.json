@@ -1,0 +1,51 @@
+{
+  "name": "homework",
+  "version": "0.1.1",
+  "description": "React Application build with Redux",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weax/dgitl.git"
+  },
+  "keywords": [],
+  "author": "Weax <weaxdesign@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weax/dgitl/issues"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "classnames": "^2.2.6",    
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"yellow,blue\" --kill-others \"npx json-server --watch --port 4000 api/db.json\" \"react-scripts start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "json-server": "^0.16.0",
+    "node-sass": "^4.13.1",
+    "concurrently": "^5.1.0"
+  }
+}

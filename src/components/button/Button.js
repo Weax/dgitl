@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './Button.css';
+import styles from './Button.module.scss';
 
 const Button = ({
   children, onClick, className, disabled, active, invert, ...attrs
@@ -16,10 +16,10 @@ const Button = ({
   };
 
   const classes = classNames(
-    'btn',
+    styles.btn,
     className,
-    { active },
-    { invert },
+    { [styles.active]: active },
+    { [styles.invert]: invert },
   );
 
   const Tag = attrs.href ? 'a' : 'button';
@@ -42,6 +42,7 @@ Button.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   active: PropTypes.bool,
+  invert: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -50,6 +51,7 @@ Button.defaultProps = {
   className: '',
   disabled: false,
   active: false,
+  invert: false,
 };
 
 export default Button;
