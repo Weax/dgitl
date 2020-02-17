@@ -10,11 +10,11 @@ React Application build with Redux
 
 3. start app using script: `npm start`
 
-The command will start a JSON server with our moch api and react app together. Browser window [http://localhost:8080](http://localhost:8080) should automatically open.
+The command will start a JSON server with mock API and react app together. Browser window [http://localhost:3000](http://localhost:3000) should automatically open.
 
 ## Mock api:
 
-We can use for such functionality any already-made online solutions like [https://my-json-server.typicode.com/](My JSON Server), but I used json-server package and run it locally.
+We can use for such functionality any already-made online solutions like [My JSON Server](https://my-json-server.typicode.com), but I used json-server package and run it locally.
 
 ## How I created the app:
 

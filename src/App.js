@@ -1,11 +1,13 @@
 import React from 'react';
-import Layout from './layout/layout/Layout';
-import Main from './layout/main/Main';
+import Layout from './blocks/layout/Layout';
+import ApiProceedContainer from './containers/ApiProceedContainer';
 
-const App = () => [
-  <Layout>
-    <Main/>    
-  </Layout>
-];
+const App = () => {
+  return (
+    <Layout>
+      <ApiProceedContainer />
+    </Layout>
+  )
+}
 
 export default App;

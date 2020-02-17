@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Portal from '../portal/Portal';
-import Icon from '../icon/Icon';
 import Button from '../button/Button';
 
-import './Modal.css';
+import styles from './Modal.module.scss';
 
 const Modal = ({
   title, isOpen, onCancel, onSubmit, children,
 }) => {
 
+  const [open, setOpen] = useState(isOpen);
+
+  //if we want to close Modal from parent
+  useEffect(() => {
+    setOpen(isOpen)
+  }, [isOpen]);
+
   return (
     <>
-      { isOpen &&
+      {open &&
         <Portal>
-          <div className="modalOverlay">
-            <div className="modalWindow">
-              <div className="modalHeader">
-                <div className="modalTitle">{title}</div>
-                <Icon name="times" onClick={onCancel} />
+          <div className={styles.modalOverlay}>
+            <div className={styles.modalWindow}>
+              <div className={styles.modalHeader}>
+                <div className={styles.modalTitle}>{title}</div>
+                <button className={styles.modalX} onClick={onCancel ? onCancel : () => setOpen(false)}>&times;</button>
               </div>
-              <div className="modalBody">
+              <div className={styles.modalBody}>
                 {children}
               </div>
-              <div className="modalFooter">
-                <Button onClick={onCancel} invert>Cancel</Button>
-                <Button onClick={onSubmit}>Submit</Button>
+              <div className={styles.modalFooter}>
+                {onSubmit &&
+                  <Button onClick={onSubmit}>Submit</Button>
+                }
+                <Button onClick={onCancel ? onCancel : () => setOpen(false)} invert>Close</Button>
               </div>
             </div>
           </div>
@@ -47,8 +55,8 @@ Modal.propTypes = {
 Modal.defaultProps = {
   title: 'Modal title',
   isOpen: false,
-  onCancel: () => {},
-  onSubmit: () => {},
+  onCancel: null,
+  onSubmit: null,
   children: null,
 };
 

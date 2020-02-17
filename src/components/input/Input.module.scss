@@ -8,10 +8,11 @@
   font-family: $fontFamily;
   font-size: $fontSize;
   line-height: $lineHeight;
-  margin-bottom: 10px;
+  border-radius: $borderRadius;
 
   &:focus {
-    outline: 1px solid $cBackground;
+    border: 1px solid $cBackground;
+    outline: none;
   }
 
   &[disabled] {
@@ -36,6 +37,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .labelsWrapper {

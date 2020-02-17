@@ -1,0 +1,75 @@
+@import '../../styles/config';
+
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+.modalWindow {
+  background-color: #FFF;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: $borderRadius;
+  animation: scaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modalHeader,
+.modalBody,
+.modalFooter {
+  padding: 15px 20px;
+}
+
+.modalHeader {
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.modalTitle {
+  font-weight: bold;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modalFooter button:last-child {
+  margin-left: 10px;
+}
+
+.modalX {
+  font-weight: bold;
+  font-size: 24rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: #c7c7c7;
+  padding: 0;
+  line-height: 0;
+  &:hover {
+    color: rgba(0, 0, 0, 0.5)
+  }
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+      transform: scale(0.5);
+  }
+  100% {
+      transform: scale(1);
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../styles/config';
+
+.main {
+    max-width: 500px;
+    box-shadow: 2px 2px 20px rgba($bodyColor, 0.1);
+    margin: auto;
+    border-radius: $borderRadius;
+
+    .error {
+        margin-top: 10px;
+    }
+}
+
+.error {
+    background-color: $errorColor;
+    color: color-yiq($errorColor);
+    padding: 7px 15px;
+    border-radius: $borderRadius;
+}
