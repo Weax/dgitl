@@ -15,7 +15,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         url: url,
+        json: null,
         result: null,
+        error: null,
         loading: true
       };
     }

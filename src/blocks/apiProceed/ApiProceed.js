@@ -22,8 +22,8 @@ const ApiProceed = ({ fetchApi, loading, result, error }) => {
         <section className={styles.main}>
             {!loading ?
                 <>
-                    <Input id="alpha" placeholder="Enter value between 1 and 10 characters long" value={alpha} onChange={onInputChange} />
-                    <Button disabled={invalid} onClick={() => fetchApi(alpha)}>Proceed</Button>
+                    <Input data-testid="input" id="alpha" type="text" maxLength="10" placeholder="Enter value between 1 and 10 characters long" value={alpha} onChange={onInputChange} />
+                    <Button data-testid="button" disabled={invalid} onClick={() => fetchApi(alpha)}>Proceed</Button>
                 </>
                 :
                 <div><Loader /> Loading...</div>

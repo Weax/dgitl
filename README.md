@@ -14,9 +14,24 @@ The command will start a JSON server with mock API and react app together. Brows
 
 ## Mock api:
 
-We can use for such functionality any already-made online solutions like [My JSON Server](https://my-json-server.typicode.com), but I used json-server package and run it locally.
+Used json-server package locally for the app (so we are closer to reality while using real fetch).
+fetch-mock for testing.
 
-## How I created the app:
+## More about the app:
 
 I used `create-react app` (CRA) as a boilerplate and a time-saver. I spend many time investigating webpack config trying to implement all modern features, but finally found that CRA team together with open community made a huge work on fighting with many plugin bugs. Today I beleave CRA is the best option for starting a new project.
 
+For input, button and modal I used some components from my reusable library.
+SASS with modules for styling.
+
+## Testing:
+
+run tests by using: `npm run test`
+
+I covered by the tests the functionality from the task:
+1. The application will have a single input text;
+2. input text should accept value between 1 and 10 characters long;
+3. The application will have a button;
+4. Button will be disabled for invalid input values;
+5. When button is clicked some background API actions will execute and the element with result will be shown;
+6. Redux action test covering the way service end-points are called;

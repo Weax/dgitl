@@ -59,7 +59,7 @@ export function fetchApi(alpha) {
     if (!facility1) dispatch(callApiError("facility1 is undefined"));
     if (!facility2) dispatch(callApiError("facility2 is undefined"));
 
-    const { exposure } = await loadJson(`${API_EXPOSURE}/${facility1}`, dispatch);
+    const { exposure } = await loadJson(`${API_EXPOSURE}/${facility2}`, dispatch);
     if (!exposure) dispatch(callApiError("exposure is undefined"));
 
     if (exposure && facility2) {
