@@ -19,7 +19,7 @@ describe('ApiProceed component', () => {
   it("input should not have more than 10 chars", async () => {
     const { queryByTestId } = renderComponent();
     const input = queryByTestId(/input/i);
-    input.value = "0123456789"; //set to maximum chars
+    input.value = "abcdefghij"; //set to maximum chars
     fireEvent.keyDown(input, { key: 'a' }); //type more
     expect(input.maxLength).toBe(10);
     expect(input.value).toHaveLength(10);
@@ -35,7 +35,9 @@ describe('ApiProceed component', () => {
     const { queryByTestId } = renderComponent();
     const btn = queryByTestId(/button/i);
     const input = queryByTestId(/input/i);
-    fireEvent.change(input, { target: { value: '0123456789abc' } });
+    fireEvent.change(input, { target: { value: 'abcdefghijk' } });
+    expect(btn).toBeDisabled();
+    fireEvent.change(input, { target: { value: '0' } });
     expect(btn).toBeDisabled();
     fireEvent.change(input, { target: { value: '' } });
     expect(btn).toBeDisabled();
@@ -45,10 +47,10 @@ describe('ApiProceed component', () => {
   it('should render result after button click', async () => {
     const { queryByTestId, getByText } = renderComponent();
     const input = queryByTestId(/input/i);
-    fireEvent.change(input, { target: { value: '1' } });
+    fireEvent.change(input, { target: { value: 'a' } });
     const btn = queryByTestId(/button/i);
     fireEvent.click(btn);
-    await waitForElement(() => getByText('4.42'));
+    await waitForElement(() => getByText('Result')); //we should see modal with Result title
   });
 
 });

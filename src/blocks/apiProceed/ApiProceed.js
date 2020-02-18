@@ -15,14 +15,14 @@ const ApiProceed = ({ fetchApi, loading, result, error }) => {
     const onInputChange = ({ target: { value } }) => {
         const val = value.trim();
         setAlpha(val);
-        setInvalid((val.length < 1 || val.length > 10)); //validate input
+        setInvalid((val.length < 1 || val.length > 10 || !/^[a-zA-Z]+$/.test(val))); //validate input
     }
 
     return (
         <section className={styles.main}>
             {!loading ?
                 <>
-                    <Input data-testid="input" id="alpha" type="text" maxLength="10" placeholder="Enter value between 1 and 10 characters long" value={alpha} onChange={onInputChange} />
+                    <Input data-testid="input" id="alpha" type="text" maxLength="10" placeholder="Enter alpha value between 1 and 10 characters long" value={alpha} onChange={onInputChange} />
                     <Button data-testid="button" disabled={invalid} onClick={() => fetchApi(alpha)}>Proceed</Button>
                 </>
                 :
