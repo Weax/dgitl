@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, cleanup, fireEvent, waitForElement } from '@testing-library/react';
-import ApiProceed from './ApiProceed';
+import { render, fireEvent, waitForElement } from '@testing-library/react';
+import App from './App';
 
 const renderComponent = (props={}) => {
   // Render new instance in every test to prevent leaking state
-  const component = render(<ApiProceed {...props}/>);
+  const component = render(<App {...props}/>);
   return component;
 }
 
@@ -41,9 +41,14 @@ describe('ApiProceed component', () => {
     expect(btn).toBeDisabled();
   });
 
-  it('should render any result text in modal', async () => {    
-    const { getByText } = renderComponent({ result: 55 });  
-    await waitForElement(() => getByText('55'));
+  //may fail if API error
+  it('should render result after button click', async () => {
+    const { queryByTestId, getByText } = renderComponent();
+    const input = queryByTestId(/input/i);
+    fireEvent.change(input, { target: { value: '1' } });
+    const btn = queryByTestId(/button/i);
+    fireEvent.click(btn);
+    await waitForElement(() => getByText('4.42'));
   });
 
 });
